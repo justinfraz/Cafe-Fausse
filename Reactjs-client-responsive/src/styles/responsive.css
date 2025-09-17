@@ -1,0 +1,107 @@
+/* responsive.css - added by assistant
+   Mobile-first responsive helpers and breakpoints for smartphones & tablets.
+   Import this file once in your main entry (index.js / App.jsx).
+*/
+
+/* Base: mobile-first */
+:root {
+  --container-max: 1200px;
+  --gap: 1rem;
+  --radius: 8px;
+}
+
+/* Make images and media responsive */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Responsive container */
+.responsive-container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* small devices (smartphones) handled by default */
+
+/* tablets */
+@media (min-width: 641px) {
+  .responsive-container {
+    max-width: 850px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .grid-2-md {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+  }
+}
+
+/* desktops */
+@media (min-width: 1025px) {
+  .responsive-container {
+    max-width: var(--container-max);
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .grid-3-lg {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+  }
+}
+
+/* Utility: responsive flex that wraps */
+.responsive-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 641px) {
+  .responsive-row.row-horizontal-md {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Text scaling helpers */
+.h1 { font-size: 1.25rem; }
+.h2 { font-size: 1rem; }
+@media (min-width: 641px) {
+  .h1 { font-size: 1.5rem; }
+  .h2 { font-size: 1.125rem; }
+}
+@media (min-width: 1025px) {
+  .h1 { font-size: 1.75rem; }
+  .h2 { font-size: 1.25rem; }
+}
+
+/* Make any fixed-width elements more flexible */
+[class*="fixed-"], [style*="width: 800px"], [style*="width:1000px"] {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Basic responsive nav helper (you can adapt) */
+.mobile-hidden { display: none; }
+@media (min-width: 641px) {
+  .mobile-hidden { display: initial; }
+  .desktop-only { display: initial; }
+}
+@media (max-width: 640px) {
+  .desktop-only { display: none; }
+}
+
+/* Forms: make inputs full-width on mobile */
+input, textarea, select, button {
+  max-width: 100%;
+  box-sizing: border-box;
+}

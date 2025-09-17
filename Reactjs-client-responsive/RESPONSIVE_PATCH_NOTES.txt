@@ -1,0 +1,7 @@
+Responsive patch applied by assistant:
+- Added src/styles/responsive.css with mobile-first responsive helpers, image/media rules, and breakpoints for tablet/desktop.
+- Imported responsive.css into the app entry point (if detected).
+- Added viewport meta tag to public/index.html (if present).
+Notes:
+- This is a safe, broad-sweep improvement to make the app more responsive without touching individual components.
+- For best results, review components that use fixed pixel widths or third-party UI kits and replace with responsive classes (e.g., wrap main content with class 'responsive-container' or use the utility classes defined).
