@@ -82,6 +82,11 @@ def add_reservation():
     except ValueError:
         return jsonify({"error": "Invalid date or time format"}), 400
 
+# Check how many reservations already exist for this time slot
+    existing_count = Reservation.query.filter_by(time_slot=time_slot).count()
+    if existing_count >= 30:
+        return jsonify({"error": "No tables available for this time slot"}), 400
+
     # Find or create customer by email
     customer = Customer.query.filter_by(email_address=email).first()
     if not customer:
@@ -93,15 +98,24 @@ def add_reservation():
         db.session.add(customer)
         db.session.commit()
 
-    # Pick random table number
-    random_table_number = randint(1, 30)
+    # Pick random available table number (1–30) that is not already booked
+    taken_tables = {
+        r.table_number for r in Reservation.query.filter_by(time_slot=time_slot).all()
+    }
+    available_tables = [t for t in range(1, 31) if t not in taken_tables]
+
+    if not available_tables:
+        return jsonify({"error": "No tables available for this time slot"}), 400
+
+    random_table_number = randint(1, len(available_tables))
+    table_number = available_tables[random_table_number - 1]
 
     # Create reservation
     reservation = Reservation(
         customer_id=customer.customer_id,
         time_slot=time_slot,
-        table_number=random_table_number,
-	guests=guests
+        table_number=table_number,
+	    guests=guests
     )
     db.session.add(reservation)
     db.session.commit()
