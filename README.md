@@ -1,63 +1,199 @@
-Python installation:
---------------------
-1. Open your web browser and navigate to the official Python website: python.org.
-2. Go to the "Downloads" section.
-3. Select the appropriate installer for your operating system (Windows, macOS, or Linux) and system architecture (32-bit or 64-bit). For Windows, choose the "Windows installer (64-bit)" for most modern systems.
-4. Locate the downloaded installer file (e.g., python-X.X.X-amd64.exe for Windows) and double-click it to run.
-5. Crucially, during the installation process, ensure you check the box that says "Add Python X.X to PATH" (or similar wording). This allows you to run Python commands directly from your terminal or command prompt.
-5. You can choose "Install Now" for a default installation or "Customize installation" to select specific features or change the installation location. If customizing, ensure "pip" (Python's package installer) is selected.
-6. Follow the on-screen prompts to complete the installation.
-7. Grant administrative privileges if prompted.
-8. Open a new terminal or command prompt window.
-9. Type python --version and press Enter. If Python is installed correctly, its version number will be displayed. If you encounter an error, try python3 --version.
+# Café Fausse
 
-NVM (Node Version Manager) installation:
-----------------------------------------
-1. Windows: Go to the nvm-windows GitHub repository and download the nvm-setup.exe file for the latest release. Run the installer and follow the on-screen instructions. 
-2. Open your terminal: After installing NVM, you may need to open a new terminal session for the command to be recognized. 
-3. Verify NVM installation: Type nvm --version to confirm NVM is installed and working. 
-4. Install a Node.js version: Choose one of the following commands to install Node.js: 
-    Latest LTS (Long-Term Support) version: nvm install lts 
-    Latest stable version: nvm install latest 
-    A specific version: nvm install <version_number> (e.g., nvm install 20.10.0) 
-5. Use the installed version: After installation, switch to the new Node.js version using nvm use <version_number>.
-6. Verify the version: Confirm the active Node.js version by running node -v.
+A full-stack web application for **Café Fausse**, built with a Flask backend, React frontend, and PostgreSQL database. Provides a restaurant website with menu browsing, reservations, newsletter signup, and a responsive (mobile + desktop) client.
 
-PostgreSQL installation:
-------------------------
-1. Download the Installer: Visit the PostgreSQL downloads page and select the Windows installer. 
-2. Run the Installer: Double-click the downloaded .exe file to start the setup wizard. 
-3. Directory: Choose an installation location or use the default. 
-4. Components: Select the components you want to install, such as the PostgreSQL Server, pgAdmin 4 (GUI management tool), and Command Line Tools. 
-5. Data Directory: Specify where the database data will be stored. 
-6. Set Superuser Password: Create a password for the PostgreSQL superuser (postgres). 
-7. Choose Port: Select the port the server will listen on; the default is 5432. 
-8. Locale: Select the locale for your database. 
-9. Click Next to finish the installation.
+---
 
+## 🧭 Table of Contents
 
+- [Features](#-features)  
+- [Tech Stack](#-tech-stack)  
+- [Setup & Installation](#-setup--installation)  
+- [Running Locally](#-running-locally)  
+- [Running Tests](#-running-tests)  
+- [API Endpoints](#-api-endpoints)  
+- [Authentication & Security](#-authentication--security)  
+- [Deployment](#-deployment)  
+- [Contributing](#-contributing)  
+- [License](#-license)  
 
+---
 
+## ✅ Features
 
+Here are some of the key capabilities of Café Fausse:
 
+- Browse menu categories and items with prices and descriptions  
+- Make table reservations (date, time, guest count, etc)  
+- Newsletter signup for updates / promotions  
+- Responsive UI (mobile, tablet, desktop)  
+- Admin-style / protected endpoints (if applicable) for managing reservations, newsletters, etc  
+- Input validation and error handling  
+- Basic protection against common security issues (e.g. SQL injection, XSS)  
 
+---
 
-py -m pip install --upgrade pip
-py -m pip install virtualenv
-py -3 -m venv env
-env\Scripts\activate
+## 🛠 Tech Stack
 
-pip install flask
-pip install Flask-SQLAlchemy
-pip install Flask-Migrate
-pip install Flask-Cors 
+| Layer | Main Tools / Libraries |
+|---|---|
+| Backend | Flask, SQLAlchemy, Flask-Migrate (or Alembic), PostgreSQL |
+| Frontend | React, React Router, fetch/axios (API calls), CSS / SCSS or styled components for responsiveness |
+| Testing | pytest for backend, Jest + React Testing Library for frontend, possibly E2E / integration tools like Cypress or Playwright |
+| DevOps / Misc | Environment variables (dotenv), CORS support, (optional) Docker / docker-compose for easier setup |
 
-set FLASK_APP=app.py
-cd Flask-server
+---
+
+## ⚙️ Setup & Installation
+
+These are steps to get the project up and running on your local machine for development / testing.
+
+### Prerequisites
+
+- Python 3.x  
+- Node.js / npm (or yarn)  
+- PostgreSQL
+
+---
+
+### Backend Setup
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/justinfraz/Cafe-Fausse.git
+   cd Cafe-Fausse/Flask_server
+
+2. Create & activate a virtual environment:
+
+python3 -m venv venv
+source venv/bin/activate   # On Windows: `venv\Scripts\activate`
+
+3. Install dependencies:
+
+pip install -r requirements.txt
+
+4. Configure environment variables:
+
+Create a .env file (or copy .env.example) with settings such as:
+
+FLASK_ENV=development
+DATABASE_URL=postgresql://username:password@localhost:5432/cafe_fausse
+SECRET_KEY=your_secret_key
+
+5. Run migrations (if you have migrations):
+
+flask db upgrade
+
+---
+
+### Frontend Setup
+
+For both the standard and responsive clients:
+
+1. Navigate to the client folder:
+
+cd Reactjs-client-responsive
+
+2. Install dependencies:
+
+npm install
+
+3. Configure API base URL (if needed):
+
+For example, create .env.local or configure environment variable like REACT_APP_API_URL=http://localhost:5000
+
+---
+
+▶️ Running Locally
+
+1. First, start the backend:
+
+cd Cafe-Fausse/Flask_server
+source venv/bin/activate
 flask run
 
-cd Reactjs-client
-node -v
-npm -v
-npm install
-npm run dev
+(The backend will typically run on http://localhost:5000.)
+
+2. Then, start the frontend:
+
+cd Cafe-Fausse/Reactjs-client-responsive
+npm start
+
+Open your browser to http://localhost:3000 (or whatever port React is serving on).
+
+---
+
+🔍 Running Tests
+Backend
+cd Flask_server
+pytest
+
+
+This runs unit + integration + security tests (if included).
+
+Frontend
+cd Reactjs-client-responsive
+npm test
+
+
+This runs React component & utility tests.
+
+---
+
+📡 API Endpoints
+
+Here are some of the API endpoints your backend provides (adjust names to match your code):
+
+Method	Endpoint	Description
+POST	/users	Create a new user (or customer)
+GET	/users/:id	Retrieve user details by ID
+GET	/products	List all products / menu items
+POST	/products	Add a new product (if admin)
+GET	/products/:id	Get details of one product
+GET	/users/search?username=<name>	Search for users by username
+POST	/comments	Post comments / feedback (if implemented)
+
+---
+
+🔐 Authentication & Security
+
+Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
+
+Passwords should be hashed (e.g. using bcrypt) — never store plaintext
+
+Validate all user inputs both frontend & backend (e.g. email formats, required fields)
+
+Protect endpoints requiring auth (if you have admin routes)
+
+Sanitize user-supplied content to protect against XSS
+
+Use parameterized queries / ORM to prevent SQL injection
+
+---
+
+🚀 Deployment
+
+Here are some general deployment considerations & steps:
+
+Use environment variables to configure production vs development settings (e.g. database URI, debug mode)
+
+Build the frontend for production (e.g. npm run build) and serve static assets (either via your Flask server or a dedicated static host / CDN)
+
+Use a production database (PostgreSQL) with secure credentials
+
+Setup HTTPS / SSL on server (if deploying publicly)
+
+(Optional) Use Docker / docker-compose to containerize your services for consistency
+
+---
+
+🧷 Acknowledgements
+
+Flask
+
+React
+
+React Testing Library
+
+Any other libraries, designs or resources you used
