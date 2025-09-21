@@ -14,8 +14,6 @@ A full-stack web application for **Café Fausse**, built with a Flask backend, R
 - [API Endpoints](#-api-endpoints)  
 - [Authentication & Security](#-authentication--security)  
 - [Deployment](#-deployment)  
-- [Contributing](#-contributing)  
-- [License](#-license)  
 
 ---
 
@@ -105,7 +103,7 @@ For example, create .env.local or configure environment variable like REACT_APP_
 
 ---
 
-▶️ Running Locally
+## ▶️ Running Locally
 
 1. First, start the backend:
 
@@ -124,7 +122,7 @@ Open your browser to http://localhost:3000 (or whatever port React is serving on
 
 ---
 
-🔍 Running Tests
+## 🔍 Running Tests
 Backend
 cd Flask_server
 pytest
@@ -141,7 +139,7 @@ This runs React component & utility tests.
 
 ---
 
-📡 API Endpoints
+## 📡 API Endpoints
 
 Here are some of the API endpoints your backend provides (adjust names to match your code):
 
@@ -156,7 +154,7 @@ POST	/comments	Post comments / feedback (if implemented)
 
 ---
 
-🔐 Authentication & Security
+## 🔐 Authentication & Security
 
 Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
 
@@ -172,7 +170,7 @@ Use parameterized queries / ORM to prevent SQL injection
 
 ---
 
-🚀 Deployment
+## 🚀 Deployment
 
 Here are some general deployment considerations & steps:
 
@@ -185,15 +183,3 @@ Use a production database (PostgreSQL) with secure credentials
 Setup HTTPS / SSL on server (if deploying publicly)
 
 (Optional) Use Docker / docker-compose to containerize your services for consistency
-
----
-
-🧷 Acknowledgements
-
-Flask
-
-React
-
-React Testing Library
-
-Any other libraries, designs or resources you used
