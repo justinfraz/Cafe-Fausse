@@ -72,11 +72,6 @@ env\Scripts\activate
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
 
-4. Run the backend:
-
-cd Flask-server
-flask run
-
 ---
 
 ### Frontend Setup
@@ -101,16 +96,17 @@ For example, create .env.local or configure environment variable like REACT_APP_
 
 1. First, start the backend:
 
-cd Cafe-Fausse/Flask_server
-source venv/bin/activate
+cd Flask-server-merged
+.\venv\Scripts\activate
+cd Flask-server
 flask run
 
 (The backend will typically run on http://localhost:5000.)
 
 2. Then, start the frontend:
 
-cd Cafe-Fausse/Reactjs-client-responsive
-npm start
+cd Reactjs-client-responsive
+nnpm run dev
 
 Open your browser to http://localhost:3000 (or whatever port React is serving on).
 
@@ -118,18 +114,10 @@ Open your browser to http://localhost:3000 (or whatever port React is serving on
 
 ## 🔍 Running Tests
 Backend
-cd Flask_server
+cd Flask-server-merged
 pytest
 
-
-This runs unit + integration + security tests (if included).
-
-Frontend
-cd Reactjs-client-responsive
-npm test
-
-
-This runs React component & utility tests.
+This runs unit + integration + security tests.
 
 ---
 
