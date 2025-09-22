@@ -60,28 +60,22 @@ These are steps to get the project up and running on your local machine for deve
 
    ```bash
    git clone https://github.com/justinfraz/Cafe-Fausse.git
-   cd Cafe-Fausse/Flask_server
+   cd Cafe-Fausse/Flask-server-merged
 
 2. Create & activate a virtual environment:
 
-python3 -m venv venv
-source venv/bin/activate   # On Windows: `venv\Scripts\activate`
+py -m venv .venv
+env\Scripts\activate
 
 3. Install dependencies:
 
 pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
-4. Configure environment variables:
+4. Run the backend:
 
-Create a .env file (or copy .env.example) with settings such as:
-
-FLASK_ENV=development
-DATABASE_URL=postgresql://username:password@localhost:5432/cafe_fausse
-SECRET_KEY=your_secret_key
-
-5. Run migrations (if you have migrations):
-
-flask db upgrade
+cd Flask-server
+flask run
 
 ---
 
