@@ -117,9 +117,9 @@ Open your browser and navigate to http://localhost:3000 (or whatever port React 
 
 ## 🔍 Running Tests
 
-Backend
+2. Backend:
 
-   ``bash
+   ```bash
    cd Flask-server-merged
    pytest
 
