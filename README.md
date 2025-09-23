@@ -128,7 +128,7 @@ This runs unit + integration + security tests.
 
 ## 📡 API Endpoints
 
-1. Backend:
+Backend:
 
 | Method | Endpoint URL |
 |---|---|
