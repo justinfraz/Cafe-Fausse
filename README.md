@@ -47,9 +47,9 @@ These are steps to get the project up and running on your local machine for deve
 
 ### Prerequisites
 
-- Python 3.x  
-- Node.js / npm (or yarn)  
-- PostgreSQL
+- Python 3.x  (https://www.python.org/downloads/)
+- Node.js / npm  (https://nodejs.org/en/download)
+- PostgreSQL (https://www.postgresql.org/download/windows/)
 
 ---
 
@@ -63,13 +63,15 @@ These are steps to get the project up and running on your local machine for deve
 
 2. Create & activate a virtual environment:
 
-py -m venv venv
-venv\Scripts\activate
+   ```bash
+   py -m venv venv
+   venv\Scripts\activate
 
 3. Install dependencies:
 
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
+   ```bash
+   pip install -r requirements.txt
+   pip install -r requirements-dev.txt
 
 ---
 
@@ -79,15 +81,17 @@ For both the standard and responsive clients:
 
 1. Navigate to the client folder:
 
-cd Reactjs-client-responsive
+   ```bash
+   cd Reactjs-client-responsive
 
 2. Install dependencies:
 
-npm install
+   ```bash
+   npm install
 
 3. Configure API base URL (if needed):
 
-For example, create .env.local or configure environment variable like REACT_APP_API_URL=http://localhost:5000
+For example, configure environment variable like REACT_APP_API_URL=http://localhost:5000
 
 ---
 
@@ -95,19 +99,19 @@ For example, create .env.local or configure environment variable like REACT_APP_
 
 1. First, start the backend:
 
-cd Flask-server
+   ```bash
+   cd Flask-server
+   flask run
 
-flask run
-
-(The backend will typically run on http://localhost:5000.)
+Open your browser and navigate to http://localhost:5000
 
 2. Then, start the frontend:
 
-cd Reactjs-client-responsive
+   ```bash
+   cd Reactjs-client-responsive
+   npm run dev
 
-npm run dev
-
-Open your browser to http://localhost:3000 (or whatever port React is serving on).
+Open your browser and navigate to http://localhost:3000 (or whatever port React is serving on).
 
 ---
 
@@ -115,9 +119,9 @@ Open your browser to http://localhost:3000 (or whatever port React is serving on
 
 Backend
 
-cd Flask-server-merged
-
-pytest
+   ```bash
+   cd Flask-server-merged
+   pytest
 
 This runs unit + integration + security tests.
 
