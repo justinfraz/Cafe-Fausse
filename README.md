@@ -128,24 +128,26 @@ This runs unit + integration + security tests.
 
 ##📡 API Endpoints
 
-Here are some of the API endpoints your backend provides (adjust names to match your code):
+Here are some of the API endpoints your backend provides:
 
+   http://localhost/customers
+   http://localhost/reservations
 
 ---
 
 ## 🔐 Authentication & Security
 
-Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
+   Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
 
-Passwords should be hashed (e.g. using bcrypt) — never store plaintext
+   Passwords should be hashed (e.g. using bcrypt) — never store plaintext
 
-Validate all user inputs both frontend & backend (e.g. email formats, required fields)
+   Validate all user inputs both frontend & backend (e.g. email formats, required fields)
 
-Protect endpoints requiring auth (if you have admin routes)
+   Protect endpoints requiring auth (if you have admin routes)
 
-Sanitize user-supplied content to protect against XSS
+   Sanitize user-supplied content to protect against XSS
 
-Use parameterized queries / ORM to prevent SQL injection
+   Use parameterized queries / ORM to prevent SQL injection
 
 ---
 
@@ -153,12 +155,12 @@ Use parameterized queries / ORM to prevent SQL injection
 
 Here are some general deployment considerations & steps:
 
-Use environment variables to configure production vs development settings (e.g. database URI, debug mode)
+   Use environment variables to configure production vs development settings (e.g. database URI, debug mode)
 
-Build the frontend for production (e.g. npm run build) and serve static assets (either via your Flask server or a dedicated static host / CDN)
+   Build the frontend for production (e.g. npm run build) and serve static assets (either via your Flask server or a dedicated static host / CDN)
 
-Use a production database (PostgreSQL) with secure credentials
+   Use a production database (PostgreSQL) with secure credentials
 
-Setup HTTPS / SSL on server (if deploying publicly)
+   Setup HTTPS / SSL on server (if deploying publicly)
 
-(Optional) Use Docker / docker-compose to containerize your services for consistency
+   (Optional) Use Docker / docker-compose to containerize your services for consistency
