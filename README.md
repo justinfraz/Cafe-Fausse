@@ -91,7 +91,8 @@ For both the standard and responsive clients:
 
 3. Configure API base URL (if needed):
 
-For example, configure environment variable like REACT_APP_API_URL=http://localhost:5000
+   ```bash
+   For example, configure environment variable like REACT_APP_API_URL=http://localhost:5000
 
 ---
 
@@ -102,22 +103,20 @@ For example, configure environment variable like REACT_APP_API_URL=http://localh
    ```bash
    cd Flask-server
    flask run
-
-Open your browser and navigate to http://localhost:5000
+   Open your browser and navigate to http://localhost:5000
 
 2. Then, start the frontend:
 
    ```bash
    cd Reactjs-client-responsive
    npm run dev
-
-Open your browser and navigate to http://localhost:3000 (or whatever port React is serving on).
+   Open your browser and navigate to http://localhost:3000 (or whatever port React is serving on).
 
 ---
 
 ## 🔍 Running Tests
 
-2. Backend:
+1. Backend:
 
    ```bash
    cd Flask-server-merged
