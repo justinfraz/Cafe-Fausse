@@ -18,9 +18,9 @@ db.init_app(app)  # Initialize SQLAlchemy with the app
 migrate = Migrate(app, db)
 CORS(app)
 
-#with app.app_context():
+with app.app_context():
     #db.drop_all()  # WARNING: This deletes all existing tables/data!
-    #db.create_all()
+    db.create_all()
 
 @app.route("/customers", methods=["GET"])
 def get_customers():
