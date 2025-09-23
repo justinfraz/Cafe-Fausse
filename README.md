@@ -126,41 +126,38 @@ This runs unit + integration + security tests.
 
 ---
 
-##📡 API Endpoints
+## 📡 API Endpoints
 
-Here are some of the API endpoints your backend provides:
+1. Backend:
 
+   ```bash
    http://localhost/customers
-   http://localhost/reservations
+   ttp://localhost/reservations
 
 ---
 
 ## 🔐 Authentication & Security
 
+1. Here are some authentication & security steps:
+
+   ```bash
    Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
-
    Passwords should be hashed (e.g. using bcrypt) — never store plaintext
-
    Validate all user inputs both frontend & backend (e.g. email formats, required fields)
-
    Protect endpoints requiring auth (if you have admin routes)
-
    Sanitize user-supplied content to protect against XSS
-
    Use parameterized queries / ORM to prevent SQL injection
+ 
 
 ---
 
 ## 🚀 Deployment
 
-Here are some general deployment considerations & steps:
+1. Here are some general deployment considerations & steps:
 
+   ```bash
    Use environment variables to configure production vs development settings (e.g. database URI, debug mode)
-
    Build the frontend for production (e.g. npm run build) and serve static assets (either via your Flask server or a dedicated static host / CDN)
-
    Use a production database (PostgreSQL) with secure credentials
-
    Setup HTTPS / SSL on server (if deploying publicly)
-
    (Optional) Use Docker / docker-compose to containerize your services for consistency
