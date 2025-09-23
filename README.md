@@ -37,7 +37,7 @@ Here are some of the key capabilities of Café Fausse:
 |---|---|
 | Backend | Flask, SQLAlchemy, Flask-Migrate (or Alembic), PostgreSQL |
 | Frontend | React, React Router, CSS / SCSS or styled components for responsiveness |
-| Testing | pytest for backend |
+| Testing | Pytest for backend |
 
 ---
 
@@ -47,9 +47,9 @@ These are steps to get the project up and running on your local machine for deve
 
 ### Prerequisites
 
-- Python 3.x  (https://www.python.org/downloads/)
-- Node.js / npm  (https://nodejs.org/en/download)
-- PostgreSQL (https://www.postgresql.org/download/windows/)
+- Download and install Python 3.x from this site: https://www.python.org/downloads/
+- Download and install Node.js / npm from this site: https://nodejs.org/en/download
+- Download and install PostgreSQL from this site: https://www.postgresql.org/download/windows/
 
 ---
 
@@ -131,8 +131,9 @@ This runs unit + integration + security tests.
 1. Backend:
 
    ```bash
-   http://localhost/customers
-   ttp://localhost/reservations
+   http://localhost/customers (GET, POST)
+   http://localhost/reservations (GET, POST)
+   http://localhost/newsletter-signup (POST)
 
 ---
 
@@ -147,7 +148,6 @@ This runs unit + integration + security tests.
    Protect endpoints requiring auth (if you have admin routes)
    Sanitize user-supplied content to protect against XSS
    Use parameterized queries / ORM to prevent SQL injection
- 
 
 ---
 
