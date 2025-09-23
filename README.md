@@ -130,10 +130,13 @@ This runs unit + integration + security tests.
 
 1. Backend:
 
-   ```bash
-   http://localhost/customers (GET, POST)
-   http://localhost/reservations (GET, POST)
-   http://localhost/newsletter-signup (POST)
+| Method | Endpoint URL |
+|---|---|
+| GET | http://localhost/customers |
+| POST | http://localhost/customers |
+| GET | http://localhost/reservations |
+| POST | http://localhost/reservations |
+| POST | http://localhost/newsletter-signup |
 
 ---
 
