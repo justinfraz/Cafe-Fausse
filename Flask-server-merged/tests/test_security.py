@@ -1,4 +1,3 @@
-
 def test_security_headers_present(client):
     # Check a few common security headers on root
     resp = client.get("/")

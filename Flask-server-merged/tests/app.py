@@ -18,9 +18,9 @@ db.init_app(app)  # Initialize SQLAlchemy with the app
 migrate = Migrate(app, db)
 CORS(app)
 
-#with app.app_context():
+# with app.app_context():
     #db.drop_all()  # WARNING: This deletes all existing tables/data!
-    #db.create_all()
+    # db.create_all()
 
 @app.route("/customers", methods=["GET"])
 def get_customers():
@@ -156,6 +156,14 @@ def newsletter_signup():
         "message": "Signed up for newsletter successfully",
         "customer_id": customer.customer_id
     }), 201
+
+@app.after_request
+def add_security_headers(response):
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["Content-Security-Policy"] = "default-src 'self'"
+    response.headers["Referrer-Policy"] = "no-referrer"
+    return response
 
 if __name__ == "__main__":
     app.run(debug=True)
