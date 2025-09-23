@@ -142,6 +142,21 @@ POST	/comments	Post comments / feedback (if implemented)
 
 ---
 
+##📡 API Endpoints
+
+Here are some of the API endpoints your backend provides (adjust names to match your code):
+
+Method	Endpoint	Description
+POST	/users	Create a new user (or customer)
+GET	/users/:id	Retrieve user details by ID
+GET	/products	List all products / menu items
+POST	/products	Add a new product (if admin)
+GET	/products/:id	Get details of one product
+GET	/users/search?username=<name>	Search for users by username
+POST	/comments	Post comments / feedback (if implemented)
+
+---
+
 ## 🔐 Authentication & Security
 
 Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
