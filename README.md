@@ -36,9 +36,8 @@ Here are some of the key capabilities of Café Fausse:
 | Layer | Main Tools / Libraries |
 |---|---|
 | Backend | Flask, SQLAlchemy, Flask-Migrate (or Alembic), PostgreSQL |
-| Frontend | React, React Router, fetch/axios (API calls), CSS / SCSS or styled components for responsiveness |
-| Testing | pytest for backend, Jest + React Testing Library for frontend, possibly E2E / integration tools like Cypress or Playwright |
-| DevOps / Misc | Environment variables (dotenv), CORS support, (optional) Docker / docker-compose for easier setup |
+| Frontend | React, React Router, CSS / SCSS or styled components for responsiveness |
+| Testing | pytest for backend |
 
 ---
 
@@ -64,8 +63,8 @@ These are steps to get the project up and running on your local machine for deve
 
 2. Create & activate a virtual environment:
 
-py -m venv .venv
-env\Scripts\activate
+py -m venv venv
+venv\Scripts\activate
 
 3. Install dependencies:
 
@@ -96,9 +95,8 @@ For example, create .env.local or configure environment variable like REACT_APP_
 
 1. First, start the backend:
 
-cd Flask-server-merged
-.\venv\Scripts\activate
 cd Flask-server
+
 flask run
 
 (The backend will typically run on http://localhost:5000.)
@@ -106,15 +104,19 @@ flask run
 2. Then, start the frontend:
 
 cd Reactjs-client-responsive
-nnpm run dev
+
+npm run dev
 
 Open your browser to http://localhost:3000 (or whatever port React is serving on).
 
 ---
 
 ## 🔍 Running Tests
+
 Backend
+
 cd Flask-server-merged
+
 pytest
 
 This runs unit + integration + security tests.
