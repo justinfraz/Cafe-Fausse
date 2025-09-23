@@ -119,7 +119,7 @@ Open your browser and navigate to http://localhost:3000 (or whatever port React 
 
 Backend
 
-   ```bash
+   ``bash
    cd Flask-server-merged
    pytest
 
@@ -127,7 +127,7 @@ This runs unit + integration + security tests.
 
 ---
 
-## 📡 API Endpoints
+##📡 API Endpoints
 
 Here are some of the API endpoints your backend provides (adjust names to match your code):
 
