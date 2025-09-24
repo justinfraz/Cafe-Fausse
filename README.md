@@ -143,7 +143,7 @@ Backend:
 ## 🔐 Authentication & Security
 
 - Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
-- Passwords should be hashed (e.g. using bcrypt) — never store plaintext
+- Passwords should be hashed (e.g. using bcrypt).  Never store them in plaintext
 - Validate all user inputs both frontend & backend (e.g. email formats, required fields)
 - Protect endpoints requiring auth (if you have admin routes)
 - Sanitize user-supplied content to protect against XSS
