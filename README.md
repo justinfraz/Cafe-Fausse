@@ -1,6 +1,6 @@
 # Café Fausse
 
-A full-stack web application for **Café Fausse**, built with a Flask backend, React frontend, and PostgreSQL database. Provides a restaurant website with menu browsing, reservations, newsletter signup, and a responsive (mobile + desktop) client.
+The **Café Fausse** full-stack, web application will serve as the digital front door for a fine-dining establishment. It will combine a visually appealing React-based front-end with a robust Flask back-end. A PostgreSQL database will ensure reliable data storage for reservations and customer information. It provides a restaurant website with menu browsing, table reservations, newsletter signups, and a responsive (mobile + desktop) client.
 
 ---
 
@@ -157,4 +157,3 @@ Backend:
 - Build the frontend for production (e.g. npm run build) and serve static assets (either via your Flask server or a dedicated static host / CDN)
 - Use a production database (PostgreSQL) with secure credentials
 - Setup HTTPS / SSL on server (if deploying publicly)
-- (Optional) Use Docker / docker-compose to containerize your services for consistency
