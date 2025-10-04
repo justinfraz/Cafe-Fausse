@@ -1,6 +1,6 @@
 # Café Fausse
 
-A full-stack web application for **Café Fausse**, built with a Flask backend, React frontend, and PostgreSQL database. Provides a restaurant website with menu browsing, reservations, newsletter signup, and a responsive (mobile + desktop) client.
+The **Café Fausse** full-stack, web application will serve as the digital front door for a fine-dining establishment. It will combine a visually appealing React-based front-end with a robust Flask back-end. A PostgreSQL database will ensure reliable data storage for reservations and customer information. It provides a restaurant website with menu browsing, table reservations, newsletter signups, and a responsive (mobile + desktop) client.
 
 ---
 
@@ -36,9 +36,8 @@ Here are some of the key capabilities of Café Fausse:
 | Layer | Main Tools / Libraries |
 |---|---|
 | Backend | Flask, SQLAlchemy, Flask-Migrate (or Alembic), PostgreSQL |
-| Frontend | React, React Router, fetch/axios (API calls), CSS / SCSS or styled components for responsiveness |
-| Testing | pytest for backend, Jest + React Testing Library for frontend, possibly E2E / integration tools like Cypress or Playwright |
-| DevOps / Misc | Environment variables (dotenv), CORS support, (optional) Docker / docker-compose for easier setup |
+| Frontend | React, React Router, CSS / SCSS or styled components for responsiveness |
+| Testing | Pytest for backend |
 
 ---
 
@@ -48,9 +47,9 @@ These are steps to get the project up and running on your local machine for deve
 
 ### Prerequisites
 
-- Python 3.x  
-- Node.js / npm (or yarn)  
-- PostgreSQL
+- Download and install Python 3.x from this site: https://www.python.org/downloads/
+- Download and install Node.js / npm from this site: https://nodejs.org/en/download
+- Download and install PostgreSQL from this site: https://www.postgresql.org/download/windows/
 
 ---
 
@@ -69,8 +68,9 @@ env\Scripts\activate
 
 3. Install dependencies:
 
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
+   ```bash
+   pip install -r requirements.txt
+   pip install -r requirements-dev.txt
 
 ---
 
@@ -80,15 +80,18 @@ For both the standard and responsive clients:
 
 1. Navigate to the client folder:
 
-cd Reactjs-client-responsive
+   ```bash
+   cd Reactjs-client-responsive
 
 2. Install dependencies:
 
-npm install
+   ```bash
+   npm install
 
 3. Configure API base URL (if needed):
 
-For example, create .env.local or configure environment variable like REACT_APP_API_URL=http://localhost:5000
+   ```bash
+   For example, configure environment variable like REACT_APP_API_URL=http://localhost:5000
 
 ---
 
@@ -96,26 +99,27 @@ For example, create .env.local or configure environment variable like REACT_APP_
 
 1. First, start the backend:
 
-cd Flask-server-merged
-.\venv\Scripts\activate
-cd Flask-server
-flask run
-
-(The backend will typically run on http://localhost:5000.)
+   ```bash
+   cd Flask-server
+   flask run
+   Open your browser and navigate to http://localhost:5000
 
 2. Then, start the frontend:
 
-cd Reactjs-client-responsive
-nnpm run dev
-
-Open your browser to http://localhost:3000 (or whatever port React is serving on).
+   ```bash
+   cd Reactjs-client-responsive
+   npm run dev
+   Open your browser and navigate to http://localhost:3000 (or whatever port React is serving on).
 
 ---
 
 ## 🔍 Running Tests
-Backend
-cd Flask-server-merged
-pytest
+
+1. Backend:
+
+   ```bash
+   cd Flask-server-merged
+   pytest
 
 This runs unit + integration + security tests.
 
@@ -123,45 +127,32 @@ This runs unit + integration + security tests.
 
 ## 📡 API Endpoints
 
-Here are some of the API endpoints your backend provides (adjust names to match your code):
+Backend:
 
-Method	Endpoint	Description
-POST	/users	Create a new user (or customer)
-GET	/users/:id	Retrieve user details by ID
-GET	/products	List all products / menu items
-POST	/products	Add a new product (if admin)
-GET	/products/:id	Get details of one product
-GET	/users/search?username=<name>	Search for users by username
-POST	/comments	Post comments / feedback (if implemented)
+| Method | Endpoint URL |
+|---|---|
+| GET | http://localhost/customers |
+| POST | http://localhost/customers |
+| GET | http://localhost/reservations |
+| POST | http://localhost/reservations |
+| POST | http://localhost/newsletter-signup |
 
 ---
 
 ## 🔐 Authentication & Security
 
-Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
-
-Passwords should be hashed (e.g. using bcrypt) — never store plaintext
-
-Validate all user inputs both frontend & backend (e.g. email formats, required fields)
-
-Protect endpoints requiring auth (if you have admin routes)
-
-Sanitize user-supplied content to protect against XSS
-
-Use parameterized queries / ORM to prevent SQL injection
+- Ensure you handle sensitive data using environment variables (e.g. SECRET_KEY, database credentials)
+- Passwords should be hashed (e.g. using bcrypt).  Never store them in plaintext
+- Validate all user inputs both frontend & backend (e.g. email formats, required fields)
+- Protect endpoints requiring auth (if you have admin routes)
+- Sanitize user-supplied content to protect against XSS
+- Use parameterized queries / ORM to prevent SQL injection
 
 ---
 
 ## 🚀 Deployment
 
-Here are some general deployment considerations & steps:
-
-Use environment variables to configure production vs development settings (e.g. database URI, debug mode)
-
-Build the frontend for production (e.g. npm run build) and serve static assets (either via your Flask server or a dedicated static host / CDN)
-
-Use a production database (PostgreSQL) with secure credentials
-
-Setup HTTPS / SSL on server (if deploying publicly)
-
-(Optional) Use Docker / docker-compose to containerize your services for consistency
+- Use environment variables to configure production vs development settings (e.g. database URI, debug mode)
+- Build the frontend for production (e.g. npm run build) and serve static assets (either via your Flask server or a dedicated static host / CDN)
+- Use a production database (PostgreSQL) with secure credentials
+- Setup HTTPS / SSL on server (if deploying publicly)
