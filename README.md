@@ -63,9 +63,8 @@ These are steps to get the project up and running on your local machine for deve
 
 2. Create & activate a virtual environment:
 
-   ```bash
-   py -m venv venv
-   venv\Scripts\activate
+py -m venv env
+env\Scripts\activate
 
 3. Install dependencies:
 
